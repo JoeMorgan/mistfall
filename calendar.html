@@ -123,28 +123,26 @@
 			}
 			body{
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-				padding:var(--padding);
-				height: calc(100vh - var(--padding));
+				height: 100vh;
 			}
 			.year{
 				counter-reset: months;
-				display: flex;
 				height: calc(100vh - (2 * var(--padding)));
-				width: 5400px;
 			}
 			.year > li{
 				height: 620px;
-				padding: 0 20px;
+				padding: 50px 0;
 				position: relative;
+				display: grid;
+    			justify-content: center;
 			}
-			.year li::before{
-				font-size: 14px;
+			.month::before{
+				font-size: 18px;
 				counter-increment: months;
 				content: "Month " counter(months);
 				position: absolute;
 				display: block;
-				top: -26px;
-				left: 21px;
+				top: -30px;
 			}
 			.month{
 				counter-reset: days;
@@ -154,6 +152,7 @@
 				grid-template-columns: repeat(7, 1fr);
 				grid-template-rows: repeat(5, 1fr);
 				height: 100%;
+				position: relative;
 				width: 1080px;
 			}
 			.month li{
@@ -424,8 +423,8 @@
 				</ol>
 			</li>
 			<!-- Month 4 -->
-			<li>
-				<ol class="month" id="current">
+			<li id="current">
+				<ol class="month">
 					<!-- Day 1 -->
 					<li></li>
 					<!-- Day 2 -->
