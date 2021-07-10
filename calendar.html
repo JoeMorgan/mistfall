@@ -164,6 +164,7 @@
 				font-size: 13px;
 				text-align: center;
 				position: relative;
+				text-shadow: 0 0 1px #888;
 			}
 			.month li::before{
 				font-size: 12px;
@@ -184,8 +185,11 @@
 			.month p{
 				margin-bottom: 6px;
 			}
-			.month .dm{
-				color: #fff;
+			.month .Ishryth{
+				display: none;
+			}
+			.Ishryth .month .Ishryth{
+				display: block;
 			}
 			.month p::selection{
 				color: #000;
@@ -195,7 +199,17 @@
 				background: #efefef;
 			}
 			.current{
-				background: #fcf9c7;
+				box-shadow: 0 0 10px #f9ef7e;    /* outer right cyan */
+			}
+			.start-downtime,
+			.start-downtime ~ li:not(.end-downtime ~ li){
+				background: repeating-linear-gradient(
+					45deg,
+					#fff,
+					#fff 10px,
+					#e2ecfd 10px,
+					#e2ecfd 20px
+				);
 			}
 		</style>
 	</head>
@@ -440,7 +454,7 @@
 					<!-- Day 4 -->
 					<li></li>
 					<!-- Day 5 -->
-					<li class="current">
+					<li class="start-downtime">
 						<p>Keschi armorer begins work on half plate</p>
 					</li>
 					<!-- Day 6 -->
@@ -452,7 +466,9 @@
 					<!-- Day 8 -->
 					<li></li>
 					<!-- Day 9 -->
-					<li></li>
+					<li>
+						<p>Thwarted the suspected false flag attack in the Paces</p>
+					</li>
 					<!-- Day 10 -->
 					<li></li>
 					<!-- Day 11 -->
@@ -463,17 +479,23 @@
 					<!-- Day 12 -->
 					<li></li>
 					<!-- Day 13 -->
-					<li></li>
+					<li class="end-downtime">
+						<p>Debate at the Silver Circle</p>
+					</li>
 					<!-- Day 14 -->
-					<li></li>
+					<li>
+						<p>Left the city with Cai's wall</p>
+					</li>
 					<!-- Day 15 -->
-					<li></li>
+					<li class="current"></li>
 					<!-- Day 16 -->
 					<li></li>
 					<!-- Day 17 -->
 					<li><p>Ambrose's armor will be ready</p></li>
 					<!-- Day 18 -->
-					<li></li>
+					<li>
+						<p>Meet with Lieutenant Gvelfi</p>
+					</li>
 					<!-- Day 19 -->
 					<li></li>
 					<!-- Day 20 -->
@@ -493,6 +515,7 @@
 					<!-- Day 27 -->
 					<li>
 						<p>Midsummer</p>
+						<p>Primarch's Party</p>
 					</li>
 					<!-- Day 28 -->
 					<li></li>
@@ -963,5 +986,8 @@
 				</ol>
 			</li>
 		</ol>
+		<script>
+			window.location.href.includes("?dm") && document.documentElement.classList.add("Ishryth");
+		</script>
 	</body>
 </html>
